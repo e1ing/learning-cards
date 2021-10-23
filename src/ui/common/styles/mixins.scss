@@ -1,0 +1,28 @@
+@import './variables';
+
+@mixin text($fontFamily, $fontSize,  $fontWeight, $lineHeight, $color){
+  font-family: $fontFamily;
+  font-size:$fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+  color: $color;
+}
+
+@mixin container(){
+  width: 80%;
+  margin: 0 auto; /*это внешний отступ, первая цифра - это 0 вверху и внизу отступ, а слева и справа - автоматически*/
+}
+
+@mixin flex ($direction,$justify, $alignItems,$wrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $alignItems;
+  flex-wrap: $wrap;
+}
+
+@mixin bgSettings(){
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
