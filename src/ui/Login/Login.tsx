@@ -1,6 +1,6 @@
 import {useFormik} from 'formik';
 import React from 'react';
-import {CustomInput} from "../common/Input/CustomInput";
+import {CustomInput} from "../common/CustomInput/CustomInput";
 
 type FormikErrorType = {
     email?: string
@@ -39,7 +39,6 @@ export const Login = () => {
         <div>
             <h2>it-incubator</h2>
             <h3>Sign in</h3>
-
             <CustomInput/>
         </div>
 

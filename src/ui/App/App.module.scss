@@ -1,0 +1,6 @@
+@import '/src/ui/common/styles/variables';
+
+.commonStyles {
+  text-align: center;
+  background: linear-gradient(180deg, $firstBgColor 0%, $secondBgColor 100%);
+}
