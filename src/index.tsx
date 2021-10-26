@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './ui/App/App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+         {/* <Provider store={store}>*/}
     <App />
+         {/* </Provider>*/}
+      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

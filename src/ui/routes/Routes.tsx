@@ -6,7 +6,7 @@ import {UpdatePassword} from "../UpdatePassword/UpdatePassword";
 import {Registration} from "../Registration/Registration";
 import {Login} from "../Login/Login";
 
-const PATH = {
+export const PATH = {
     LOGIN: "/login",
     PROFILE: "/profile",
     PASSWORD_RECOVERY: "/password-recovery",
