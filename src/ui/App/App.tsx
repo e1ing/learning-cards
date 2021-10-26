@@ -1,6 +1,6 @@
 import React from 'react';
 import {CustomInput} from "../common/CustomInput/CustomInput";
-import styles from "App.module.scss"
+import styles from "./App.module.scss"
 
 function App() {
 return (

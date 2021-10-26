@@ -1,6 +1,7 @@
-@import '/src/ui/common/styles/variables';
+@import '../common/styles/variables';
 
 .commonStyles {
+  min-height: 100vh;
   text-align: center;
   background: linear-gradient(180deg, $firstBgColor 0%, $secondBgColor 100%);
 }
