@@ -1,6 +1,8 @@
 import {useFormik} from 'formik';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import {CustomInput} from "../common/CustomInput/CustomInput";
+import { PATH } from '../routes/Routes';
 
 type FormikErrorType = {
     email?: string
@@ -40,6 +42,9 @@ export const Login = () => {
             <h2>it-incubator</h2>
             <h3>Sign in</h3>
             <CustomInput/>
+            <CustomInput/>
+            <NavLink to={PATH.PASSWORD_RECOVERY} style={{textDecoration: "none"}}>Forgot Password</NavLink>
+            <CustomButton/>
         </div>
 
     )
