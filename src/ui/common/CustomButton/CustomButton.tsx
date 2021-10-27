@@ -1,16 +1,16 @@
 import React, {ButtonHTMLAttributes, DetailedHTMLProps, FC} from 'react';
 import styles from './CustomButton.module.scss';
 
-type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLElement>
-type CustomButtonPropsType = DefaultButtonPropsType & {errorCase: boolean}
+type DefaultButtonPropsType =  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+type CustomButtonPropsType = DefaultButtonPropsType /*& {errorCase: boolean}*/
 
-export const CustomButton: FC<CustomButtonPropsType> = ({errorCase, className, ...restProps}) => {
+export const CustomButton: FC<CustomButtonPropsType> = ({className, ...restProps}) => {
 
-    const finalClassName = `${errorCase ? styles.errorCase : styles.default} ${className}`;
+   /* const finalClassName = `${errorCase ? styles.errorCase : styles.default} ${className}`;*/
 
     return (
      <button
-         className={finalClassName}
+         className={styles.button}
          {...restProps}
          >
      </button>

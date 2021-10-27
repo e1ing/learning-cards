@@ -2,14 +2,16 @@
   font-family: "Poppins";
   src: url("../fonts/Poppins/Poppins-Medium.ttf") format("ttf")
 }
+@font-face {
+  font-family: "SF UI Display";
+  src: url("../fonts/SF UI/sf-ui-display-medium-58646be638f96.otf") format("otf")
+}
 
 
 $textColor: #2D2E46;
 $secondTextColor: #696969;
 $boardBackground: #F9F9FE;
-$headingFont: 'Poppins';
-$mainFont: 'Open Sans', sans-serif;
-$firstBgColor: #E6D4DE;
-$secondBgColor: #9890C7;
+$headingFont: 'Poppins', sans-serif;
+$commonFont: 'SF UI Display', sans-serif;
 $btnColor: #21268F;
-$textBtnColor: #ECECF9
+$textBtnColor: #ECECF9;

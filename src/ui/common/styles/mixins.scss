@@ -1,6 +1,6 @@
 @import './variables';
 
-@mixin text($fontFamily, $fontSize,  $fontWeight, $lineHeight, $color){
+@mixin text($fontFamily, $fontSize, $fontWeight, $lineHeight, $color){
   font-family: $fontFamily;
   font-size:$fontSize;
   font-weight: $fontWeight;
@@ -13,7 +13,7 @@
   margin: 0 auto; /*это внешний отступ, первая цифра - это 0 вверху и внизу отступ, а слева и справа - автоматически*/
 }
 
-@mixin flex ($direction,$justify, $alignItems,$wrap) {
+@mixin flex ($direction, $justify, $alignItems,$wrap) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justify;

@@ -1,0 +1,34 @@
+@import '../common/styles/mixins';
+@import '../common/styles/variables';
+
+.loginArea {
+  width: 413px;
+  height: 600px;
+  top: 60px;
+  left: 434px;
+  border-radius: 8px;
+  background-color: $boardBackground;
+  @include flex(column, space-around, center, nowrap);
+
+  .h2Style {
+    @include text($headingFont, 26px, 600, 39px, $textColor);
+  }
+
+  .h3Style {
+    @include text($headingFont, 22px, 600, 33px, $textColor);
+  }
+
+  .loginForm {
+    @include flex(column, space-between, center, nowrap);
+    width: 33px;
+    height: 230px;
+
+    .loginButton {
+      width: 266px;
+    }
+  }
+
+  .title {
+    @include text($headingFont, 14px, 600, 24px, $textColor);
+  }
+}
