@@ -1,0 +1,9 @@
+@import '../styles/variables.scss';
+
+button {
+  background-color: $btnColor;
+  height: 36px;
+  color: $textBtnColor;
+  border-radius: 30px;
+  cursor: pointer;
+}

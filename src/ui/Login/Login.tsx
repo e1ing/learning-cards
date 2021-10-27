@@ -1,8 +1,10 @@
 import {useFormik} from 'formik';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { CustomButton } from '../common/CustomButton/CustomButton';
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import { PATH } from '../routes/Routes';
+import styles from './Login.module.scss';
 
 type FormikErrorType = {
     email?: string
@@ -44,7 +46,11 @@ export const Login = () => {
             <CustomInput/>
             <CustomInput/>
             <NavLink to={PATH.PASSWORD_RECOVERY} style={{textDecoration: "none"}}>Forgot Password</NavLink>
-            <CustomButton/>
+            <CustomButton name={"Login"} className={styles.customButton}/>
+            <p>
+                Don't have an account?
+            </p>
+            <NavLink to={PATH.REGISTRATION}>Sign Up</NavLink>
         </div>
 
     )
