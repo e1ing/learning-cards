@@ -5,7 +5,6 @@ import {CustomButton} from '../common/CustomButton/CustomButton';
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import {PATH} from '../routes/Routes';
 import styles from './Login.module.scss';
-import styleButton from '../common/CustomButton/CustomButton.module.scss';
 
 type FormikErrorType = {
     email?: string
@@ -24,13 +23,13 @@ export const Login = () => {
             const errors: FormikErrorType = {};
 
             if (!values.email) {
-                errors.email = 'Required';
+                errors.email = 'Email is required';
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
                 errors.email = 'Invalid email address';
             }
 
             if (!values.password) {
-                errors.password = 'Password required';
+                errors.password = 'Password is required';
             } else if (values.password.length < 3) {
                 errors.password = 'Must be more then 3 characters';
             }
@@ -44,14 +43,16 @@ export const Login = () => {
         <div className={styles.loginArea}>
             <h2 className={styles.h2Style}>it-incubator</h2>
             <h3 className={styles.h3Style}>Sign in</h3>
-            <form className={styles.loginForm}>
+            <form onSubmit={formik.handleSubmit} className={styles.loginForm}>
                 <CustomInput type={"email"} placeholder={"Email"}
                              {...formik.getFieldProps('email')}/>
+                {formik.errors.email ? <div>{formik.errors.email}</div> : null}
                 <CustomInput type={"password"} placeholder={"Password"}
-                             {...formik.getFieldProps('password')}
-                />
+                             {...formik.getFieldProps('password')}/>
+                {formik.errors.password ? <div>{formik.errors.password}</div> : null}
                 <div>
-                    <input className={styles.checkboxStyle} type={"checkbox"} name={"rememberMe"} />
+                    <input className={styles.checkboxStyle} type={"checkbox"} checked={formik.values.rememberMe}
+                           {...formik.getFieldProps('rememberMe')}/>
                     <label className={styles.forgotPassLink} htmlFor="rememberMe">Remember me</label>
                 </div>
                 <NavLink className={styles.forgotPassLink} to={PATH.PASSWORD_RECOVERY} style={{textDecoration: "none"}}>Forgot
