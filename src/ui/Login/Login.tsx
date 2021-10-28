@@ -45,18 +45,27 @@ export const Login = () => {
             <h2 className={styles.h2Style}>it-incubator</h2>
             <h3 className={styles.h3Style}>Sign in</h3>
             <form className={styles.loginForm}>
-                <CustomInput/>
-                <CustomInput/>
-                <NavLink to={PATH.PASSWORD_RECOVERY} style={{textDecoration: "none"}}>Forgot Password</NavLink>
-                <CustomButton name={"Login"} type={"submit"} className={`${styleButton.customButton} ${styles.loginButton}`}>
-                Login
+                <CustomInput type={"email"} placeholder={"Email"}
+                             {...formik.getFieldProps('email')}/>
+                <CustomInput type={"password"} placeholder={"Password"}
+                             {...formik.getFieldProps('password')}
+                />
+                <div>
+                    <input className={styles.checkboxStyle} type={"checkbox"} name={"rememberMe"} />
+                    <label className={styles.forgotPassLink} htmlFor="rememberMe">Remember me</label>
+                </div>
+                <NavLink className={styles.forgotPassLink} to={PATH.PASSWORD_RECOVERY} style={{textDecoration: "none"}}>Forgot
+                    password</NavLink>
+                <CustomButton name={"Login"} type={"submit"} className={styles.loginButton}>
+                    Login
                 </CustomButton>
             </form>
 
             <p className={styles.title}>
                 Don't have an account?
             </p>
-            <NavLink to={PATH.REGISTRATION}>Sign Up</NavLink>
+            <NavLink className={styles.signUpLink} to={PATH.REGISTRATION} style={{textDecoration: "none"}}>Sign
+                Up</NavLink>
         </div>
 
     )
