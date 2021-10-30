@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./App.module.scss"
 import {Routes} from "../routes/Routes";
 import { Preloader } from '../common/Preloader/Preloader';
+import { CustomAlert } from '../common/CustomAlert/CustomAlert';
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
 
         <div className={styles.commonStyles}>
             <Routes/>
-            <Preloader/>
+            {/*<Preloader/>*/}
+            <CustomAlert/>
         </div>
     )
 }

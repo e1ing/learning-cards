@@ -2,6 +2,7 @@
   "name": "learning-cards",
   "version": "0.1.0",
   "private": true,
+  "homepage":"https://e1ing.github.io/learning-cards",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -31,6 +32,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

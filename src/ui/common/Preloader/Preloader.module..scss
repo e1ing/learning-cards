@@ -7,8 +7,16 @@
   position: relative;
   background: conic-gradient($boardBackground, 270deg, #9890C7, 270deg);
   animation: cp-round-animate 1s ease-in-out infinite;
+  @keyframes cp-round-animate{
+    0% {
+      transform: rotate(30deg);
+    }
+    100%{
+      transform: rotate(390deg);
+    }
+  }
 
-  &::after {
+  &:after {
     content: '';
     position: absolute;
     top: 50%;
@@ -19,13 +27,5 @@
     width: 70%;
     border-radius:50%;
   }
-  @keyframes cp-round-animate{
-    0% {
-      transform: rotate(30deg);
-    }
-    100%{
-      transform: rotate(390deg);
-      transform: rotate(390deg);
-    }
-  }
+
 }
