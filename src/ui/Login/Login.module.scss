@@ -1,0 +1,61 @@
+@import '../common/styles/mixins';
+@import '../common/styles/variables';
+@import '../common/CustomButton/CustomButton.module';
+
+.loginArea {
+  width: 413px;
+  height: 600px;
+  top: 60px;
+  left: 434px;
+  border-radius: 8px;
+  background-color: $boardBackground;
+  @include flex(column, space-around, center, nowrap);
+
+  .h2Style {
+    @include text($headingFont, 26px, 600, 39px, $textColor);
+  }
+
+  .h3Style {
+    @include text($headingFont, 22px, 600, 33px, $textColor);
+  }
+
+  .loginForm {
+    @include flex(column, space-between, center, nowrap);
+    width: 347px;
+    height: 230px;
+
+    .checkboxStyle {
+      width: 15px;
+      height: 15px;
+      margin-right: 10px;
+
+      &:checked {
+        width: 15px;
+        height: 15px;
+        margin-right: 10px;
+        appearance: none;
+        background: $btnColor;
+        border-radius: 2px;
+      }
+    }
+
+    .loginButton {
+      @extend .button;
+      width: 266px; //don't work, should be asked on support
+    }
+
+    .forgotPassLink {
+      @include text($commonFont, 14px, 200, 17px, $textColor);
+      flex: none;
+      left: 51px; //how transport to the right?
+    }
+  }
+
+  .title {
+    @include text($commonFont, 14px, 600, 24px, $secondTextColor);
+  }
+
+  .signUpLink {
+    @include text($commonFont, 16px, 600, 24px, $btnColor);
+  }
+}

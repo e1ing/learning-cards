@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins/Poppins-Medium.ttf") format("ttf")
+}
+@font-face {
+  font-family: "SF UI Display";
+  src: url("../fonts/SF UI/sf-ui-display-medium-58646be638f96.otf") format("otf")
+}
+
+
+$textColor: #2D2E46;
+$secondTextColor: #a7a4a4;
+$boardBackground: #F9F9FE;
+$headingFont: 'Poppins', sans-serif;
+$commonFont: 'SF UI Display', sans-serif;
+$btnColor: #21268F;
+$textBtnColor: #ECECF9;
+$errorColor: #ec1f91;
