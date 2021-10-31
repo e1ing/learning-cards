@@ -3,10 +3,11 @@ import {useFormik} from 'formik';
 import {CustomButton} from '../common/CustomButton/CustomButton';
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import styles from './Registration.module.scss';
-import {useDispatch} from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import {NavLink, Redirect} from 'react-router-dom';
 import {PATH} from "../routes/Routes";
 import {registerUserTC} from "../../bll/auth-reducer/registation-reducer";
+import {AppRootStateType} from '../../bll/store';
 
 type FormikErrorType = {
     email?: string
@@ -15,7 +16,14 @@ type FormikErrorType = {
 }
 
 export const Registration = () => {
+
+    const isRegistered = useSelector<AppRootStateType, boolean>(state => state.registration.isRegistered)
     const dispatch = useDispatch();
+
+    if (isRegistered) {
+        return <Redirect to={PATH.LOGIN}/>
+    }
+
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -46,7 +54,7 @@ export const Registration = () => {
             return errors;
         },
         onSubmit: values => {
-            if(values.password===values.confirmPassword){
+            if (values.password === values.confirmPassword) {
                 dispatch(registerUserTC(values));
                 formik.resetForm();
             }
@@ -73,9 +81,9 @@ export const Registration = () => {
 
                 <div className={styles.buttonContainer}></div>
                 <NavLink to={PATH.LOGIN}>
-                <CustomButton type={"submit"} className={styles.cancelButton}>
-                    Cancel
-                </CustomButton>
+                    <CustomButton type={"submit"} className={styles.cancelButton}>
+                        Cancel
+                    </CustomButton>
                 </NavLink>
                 <CustomButton type={"submit"} className={styles.registerButton}>
                     Register

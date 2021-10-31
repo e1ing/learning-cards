@@ -1,12 +1,13 @@
 import {useFormik} from 'formik';
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 import {CustomButton} from '../common/CustomButton/CustomButton';
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import {PATH} from '../routes/Routes';
 import styles from './Login.module.scss';
 import {loginTC} from "../../bll/auth-reducer/login-reducer";
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppRootStateType} from "../../bll/store";
 
 type FormikErrorType = {
     email?: string
@@ -16,6 +17,12 @@ type FormikErrorType = {
 
 export const Login = () => {
     const dispatch = useDispatch();
+    const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.login.isLoggedIn)
+
+    if (isLoggedIn){
+        return <Redirect to={PATH.PROFILE}/>
+    }
+    
     const formik = useFormik({
         initialValues: {
             email: '',
