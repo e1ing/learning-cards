@@ -20,10 +20,6 @@ export const Registration = () => {
     const isRegistered = useSelector<AppRootStateType, boolean>(state => state.registration.isRegistered)
     const dispatch = useDispatch();
 
-    if (isRegistered) {
-        return <Redirect to={PATH.LOGIN}/>
-    }
-
     const formik = useFormik({
         initialValues: {
             email: "",
@@ -61,6 +57,11 @@ export const Registration = () => {
 
         },
     })
+
+    if (isRegistered) {
+        return <Redirect to={PATH.LOGIN}/>
+    }
+
     return (
         <div className={styles.registerArea}>
             <h2 className={styles.h2Style}>it-incubator</h2>

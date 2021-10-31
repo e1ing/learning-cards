@@ -10,7 +10,8 @@ import {
 } from "../app-reducer";
 
 type InitialStateType = typeof initialState;
-type ActionType = ReturnType<typeof setLoggedInAC> | SetAppStatusAT | SetInitializedAT | SetAppErrorAT
+type SetLoggedInAT = ReturnType<typeof setLoggedInAC>
+type ActionType = SetLoggedInAT | SetAppStatusAT | SetInitializedAT | SetAppErrorAT
 
 const initialState = {
     isLoggedIn: false

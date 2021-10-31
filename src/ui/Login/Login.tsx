@@ -19,10 +19,6 @@ export const Login = () => {
     const dispatch = useDispatch();
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.login.isLoggedIn)
 
-    if (isLoggedIn){
-        return <Redirect to={PATH.PROFILE}/>
-    }
-    
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -50,6 +46,11 @@ export const Login = () => {
             formik.resetForm();
         },
     })
+
+    if (isLoggedIn) {
+        return <Redirect to={PATH.PROFILE}/>
+    }
+
     return (
         <div className={styles.loginArea}>
             <h2 className={styles.h2Style}>it-incubator</h2>

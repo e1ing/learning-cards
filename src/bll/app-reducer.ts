@@ -1,3 +1,7 @@
+import {Dispatch} from "redux";
+import {authAPI} from "../dal/api";
+import {setLoggedInAC} from "./auth-reducer/login-reducer";
+
 export type RequestStatusType = "idle" | "loading" | "succeeded" | "failed"
 
 export type SetAppStatusAT = ReturnType<typeof setAppStatusAC>
@@ -29,4 +33,10 @@ export const setAppStatusAC = (status: RequestStatusType) => ({type: "app/SET_ST
 export const setAppErrorAC = (error: string | null) => ({type: "app/SET_ERROR", error} as const);
 export const setInitializedAC = (isInitialized: boolean) => ({type: "app/SET_INITIALIZED", isInitialized} as const)
 
+export const setInitializedTC = () => (dispatch: Dispatch) => {
+    authAPI.me().then(res => {
+        dispatch(setLoggedInAC(true))
+        dispatch(setInitializedAC(true))
+    })
+}
 

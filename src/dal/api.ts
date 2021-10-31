@@ -25,6 +25,10 @@ error?: string;
 }
 
 export const authAPI = {
+    me(){
+        return instance.post<ResponseType>(`auth/me`, {})
+    },
+
     login(data: AuthParamsType<boolean>) {
         return instance.post<ResponseType>(`auth/login`, data)
     },
