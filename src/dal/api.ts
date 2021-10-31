@@ -26,8 +26,7 @@ error?: string;
 
 export const authAPI = {
     login(data: LoginParamsType) {
-        const promise = instance.post<ResponseType>('auth/login', data)
-        return promise;
+        return instance.post<ResponseType>(`auth/login`, data)
     }
 
 }

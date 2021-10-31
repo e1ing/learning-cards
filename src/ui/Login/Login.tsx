@@ -5,6 +5,8 @@ import {CustomButton} from '../common/CustomButton/CustomButton';
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import {PATH} from '../routes/Routes';
 import styles from './Login.module.scss';
+import {loginTC} from "../../bll/auth-resucers/login-reducer";
+import {useDispatch} from 'react-redux';
 
 type FormikErrorType = {
     email?: string
@@ -13,6 +15,7 @@ type FormikErrorType = {
 }
 
 export const Login = () => {
+    const dispatch = useDispatch();
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -36,7 +39,8 @@ export const Login = () => {
             return errors;
         },
         onSubmit: values => {
-
+            dispatch(loginTC(values));
+            formik.resetForm();
         },
     })
     return (
@@ -44,20 +48,24 @@ export const Login = () => {
             <h2 className={styles.h2Style}>it-incubator</h2>
             <h3 className={styles.h3Style}>Sign in</h3>
             <form onSubmit={formik.handleSubmit} className={styles.loginForm}>
+
                 <CustomInput type={"email"} placeholder={"Email"}
                              {...formik.getFieldProps('email')}/>
                 {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+
                 <CustomInput type={"password"} placeholder={"Password"}
                              {...formik.getFieldProps('password')}/>
                 {formik.errors.password ? <div>{formik.errors.password}</div> : null}
+
                 <div>
-                    <input className={styles.checkboxStyle} type={"checkbox"} checked={formik.values.rememberMe}
+                    <input className={styles.checkboxStyle} type={"checkbox"} id={"rememberMe"}
+                           checked={formik.values.rememberMe}
                            {...formik.getFieldProps('rememberMe')}/>
                     <label className={styles.forgotPassLink} htmlFor="rememberMe">Remember me</label>
                 </div>
                 <NavLink className={styles.forgotPassLink} to={PATH.PASSWORD_RECOVERY} style={{textDecoration: "none"}}>Forgot
                     password</NavLink>
-                <CustomButton name={"Login"} type={"submit"} className={styles.loginButton}>
+                <CustomButton type={"submit"} className={styles.loginButton}>
                     Login
                 </CustomButton>
             </form>

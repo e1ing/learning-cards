@@ -10,7 +10,7 @@ function App() {
 
         <div className={styles.commonStyles}>
             <Routes/>
-            {/*<Preloader/>*/}
+            <Preloader/>
             <CustomAlert/>
         </div>
     )

@@ -1,0 +1,29 @@
+@import '../styles/variables';
+
+//mixins
+@mixin animate($animation,$duration,$method,$times){
+  animation: $animation $duration $method $times;
+}
+@mixin keyframes($name){
+  @keyframes #{$name}{
+    @content;
+  }
+}
+
+.preloader{
+  font-size: 150px;
+  position: absolute;
+  transform: translateY(-50%);
+  color:$elementsColor;
+  @include animate(cp-round-animate, 1s, ease-in-out, infinite);
+
+  @include keyframes(cp-round-animate) {
+    0% {
+      transform: rotate(30deg);
+    }
+    100% {
+      transform: rotate(390deg);
+    }
+  }
+}
+
