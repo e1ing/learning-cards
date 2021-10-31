@@ -5,7 +5,7 @@ import {CustomButton} from '../common/CustomButton/CustomButton';
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import {PATH} from '../routes/Routes';
 import styles from './Login.module.scss';
-import {loginTC} from "../../bll/auth-resucers/login-reducer";
+import {loginTC} from "../../bll/auth-reducer";
 import {useDispatch} from 'react-redux';
 
 type FormikErrorType = {
@@ -46,7 +46,7 @@ export const Login = () => {
     return (
         <div className={styles.loginArea}>
             <h2 className={styles.h2Style}>it-incubator</h2>
-            <h3 className={styles.h3Style}>Sign in</h3>
+            <h3 className={styles.h3Style}>Sign In</h3>
             <form onSubmit={formik.handleSubmit} className={styles.loginForm}>
 
                 <CustomInput type={"email"} placeholder={"Email"}

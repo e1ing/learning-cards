@@ -1,0 +1,44 @@
+@import '../common/styles/mixins';
+@import '../common/styles/variables';
+@import '../common/CustomButton/CustomButton.module';
+
+.registerArea {
+  width: 413px;
+  height: 600px;
+  top: 60px;
+  left: 434px;
+  border-radius: 8px;
+  background-color: $boardBackground;
+  @include flex(column, space-around, center, nowrap);
+
+  .h2Style {
+    @include text($headingFont, 26px, 600, 39px, $textColor);
+  }
+
+  .h3Style {
+    @include text($headingFont, 22px, 600, 33px, $textColor);
+  }
+
+  .registerForm {
+    @include flex(column, space-between, center, nowrap);
+    width: 347px;
+    height: 230px;
+
+    .buttonContainer {
+      @include flex(row, space-between, center, nowrap);
+
+      .cancelButton {
+        @extend .button;
+        width: 124px;
+        background-color: #D7D8EF //don't work, should be asked on support
+      }
+
+      .registerButton {
+        @extend .button;
+        width: 266px; //don't work, should be asked on support
+      }
+
+    }
+
+  }
+}

@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
-import {authAPI, LoginParamsType} from "../../dal/api";
-import {setAppStatusAC, SetAppStatusAT, setInitializedAC, SetInitializedAT} from "../app-reducer";
+import {authAPI, LoginParamsType} from "../dal/api";
+import {setAppStatusAC, SetAppStatusAT, setInitializedAC, SetInitializedAT} from "./app-reducer";
 
 type InitialStateType = typeof initialState;
 type ActionType = ReturnType<typeof setLoggedInAC> | SetAppStatusAT | SetInitializedAT
