@@ -6,6 +6,7 @@ import styles from './Registration.module.scss';
 import {useDispatch} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import {PATH} from "../routes/Routes";
+import {registerUserTC} from "../../bll/auth-reducer/registation-reducer";
 
 type FormikErrorType = {
     email?: string
@@ -45,8 +46,11 @@ export const Registration = () => {
             return errors;
         },
         onSubmit: values => {
-            //dispatch();
-            formik.resetForm();
+            if(values.password===values.confirmPassword){
+                dispatch(registerUserTC(values));
+                formik.resetForm();
+            }
+
         },
     })
     return (
