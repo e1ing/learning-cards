@@ -46,9 +46,9 @@ export const PasswordRecovery = () => {
                 <p className={styles.text}>
                     Enter your email address and we will send you further instructions
                 </p>
-                <CustomButton type={"submit"}>
-                    Send instructions
-                </CustomButton>
+                <div className={styles.instructionsBtn}>
+                <CustomButton type={"submit"}>Send instructions</CustomButton>
+                </div>
             </form>
             <p className={styles.text}>
                 Did you remember your password?

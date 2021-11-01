@@ -8,7 +8,7 @@ import {NavLink, Redirect} from 'react-router-dom';
 import {PATH} from "../routes/Routes";
 import {registerUserTC} from "../../bll/auth-reducer/registation-reducer";
 import {AppRootStateType} from '../../bll/store';
-
+import stylesCustom from '../common/CustomButton/CustomButton.module.scss'
 type FormikErrorType = {
     email?: string
     password?: string
@@ -82,7 +82,7 @@ export const Registration = () => {
 
                 <div className={styles.buttonContainer}></div>
                 <NavLink to={PATH.LOGIN}>
-                    <CustomButton type={"submit"} className={styles.cancelButton}>
+                    <CustomButton type={"submit"} className={`${styles.cancelButton} ${stylesCustom.button}`}>
                         Cancel
                     </CustomButton>
                 </NavLink>

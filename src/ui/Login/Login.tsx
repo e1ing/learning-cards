@@ -74,9 +74,9 @@ export const Login = () => {
                 <NavLink className={styles.forgotPassLink} to={PATH.PASSWORD_RECOVERY} style={{textDecoration: "none"}}>
                     Forgot password
                 </NavLink>
-                <CustomButton type={"submit"} className={styles.loginButton}>
-                    Login
-                </CustomButton>
+                <div  className={styles.loginButton}>
+                <CustomButton type={"submit"}> Login</CustomButton>
+                </div>
             </form>
 
             <p className={styles.title}>

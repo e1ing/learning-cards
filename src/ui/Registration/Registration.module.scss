@@ -28,13 +28,11 @@
       @include flex(row, space-between, center, nowrap);
 
       .cancelButton {
-        @extend .button;
-        width: 124px;
+        width: 500px;
         background-color: #D7D8EF //don't work, should be asked on support
       }
 
       .registerButton {
-        @extend .button;
         width: 266px; //don't work, should be asked on support
       }
 

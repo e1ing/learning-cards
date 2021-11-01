@@ -1,7 +1,7 @@
 @import '../styles/variables.scss';
 
 .button {
-  min-width: 190px;
+  width: 100%;
   background-color: $btnColor;
   height: 36px;
   color: $textBtnColor;
