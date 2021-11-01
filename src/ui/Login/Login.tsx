@@ -71,8 +71,9 @@ export const Login = () => {
                            {...formik.getFieldProps('rememberMe')}/>
                     <label className={styles.forgotPassLink} htmlFor="rememberMe">Remember me</label>
                 </div>
-                <NavLink className={styles.forgotPassLink} to={PATH.PASSWORD_RECOVERY} style={{textDecoration: "none"}}>Forgot
-                    password</NavLink>
+                <NavLink className={styles.forgotPassLink} to={PATH.PASSWORD_RECOVERY} style={{textDecoration: "none"}}>
+                    Forgot password
+                </NavLink>
                 <CustomButton type={"submit"} className={styles.loginButton}>
                     Login
                 </CustomButton>
@@ -81,8 +82,9 @@ export const Login = () => {
             <p className={styles.title}>
                 Don't have an account?
             </p>
-            <NavLink className={styles.signUpLink} to={PATH.REGISTRATION} style={{textDecoration: "none"}}>Sign
-                Up</NavLink>
+            <NavLink className={styles.signUpLink} to={PATH.REGISTRATION} style={{textDecoration: "none"}}>
+                Sign Up
+            </NavLink>
         </div>
 
     )

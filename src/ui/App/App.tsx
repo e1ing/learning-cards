@@ -13,13 +13,13 @@ function App() {
     const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
     const dispatch = useDispatch()
 
-    useEffect(() => {
+   /* useEffect(() => {
         dispatch(setInitializedTC())
     }, [])
 
     if (!isInitialized) {
         return <Preloader/>
-    }
+    }*/
 
     return (
         <div className={styles.commonStyles}>

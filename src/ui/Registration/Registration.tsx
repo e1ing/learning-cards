@@ -78,7 +78,7 @@ export const Registration = () => {
 
                 <CustomInput type={"password"} placeholder={"Confirm password"}
                              {...formik.getFieldProps('confirmPassword')}/>
-                {formik.errors.password ? <div>{formik.errors.password}</div> : null}
+                {formik.errors.confirmPassword ? <div>{formik.errors.confirmPassword}</div> : null}
 
                 <div className={styles.buttonContainer}></div>
                 <NavLink to={PATH.LOGIN}>
