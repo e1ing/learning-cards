@@ -6,6 +6,7 @@ import {UpdatePassword} from "../UpdatePassword/UpdatePassword";
 import {Registration} from "../Registration/Registration";
 import {Login} from "../Login/Login";
 import {CheckEmail} from "../common/CheckEmail/CheckEmail";
+import {PackList} from "../common/PackList/PackList";
 
 export const PATH = {
     LOGIN: "/login",
@@ -13,7 +14,8 @@ export const PATH = {
     PASSWORD_RECOVERY: "/password-recovery",
     UPDATE_PASSWORD: "/update-password",
     REGISTRATION: "/registration",
-    CHECK_EMAIL: "/check-email"
+    CHECK_EMAIL: "/check-email",
+    PACK_LIST: "/pack-list"
 }
 
 export const Routes = () => {
@@ -27,6 +29,7 @@ export const Routes = () => {
                 <Route path={PATH.REGISTRATION} render={() => <Registration/>}/>
                 <Route path={PATH.LOGIN} render={() => <Login/>}/>
                 <Route path={PATH.CHECK_EMAIL} render={() => <CheckEmail/>}/>
+                <Route path={PATH.PACK_LIST} render={() => <PackList/>}/>
             </Switch>
         </div>
     )

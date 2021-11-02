@@ -9,7 +9,6 @@ import {faFan} from "@fortawesome/free-solid-svg-icons";
 export const Preloader = () => {
 
     const status = useSelector<AppRootStateType, RequestStatusType>(state => state.app.status)
-
     if (status !=="loading")
         return null;
 

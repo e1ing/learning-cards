@@ -37,6 +37,11 @@ export const setInitializedTC = () => (dispatch: Dispatch) => {
     authAPI.me().then(res => {
         dispatch(setLoggedInAC(true))
         dispatch(setInitializedAC(true))
+    }) .catch ((err) => {
+
     })
+        .finally(() =>{
+            dispatch(setInitializedAC(true))
+        })
 }
 

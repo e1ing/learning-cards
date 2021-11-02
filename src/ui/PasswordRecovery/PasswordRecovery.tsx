@@ -3,7 +3,6 @@ import {useFormik} from "formik";
 import styles from "./PasswordRecovery.module.scss";
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import {CustomButton} from "../common/CustomButton/CustomButton";
-import {loginTC} from "../../bll/auth-reducer/login-reducer";
 import {NavLink} from "react-router-dom";
 import {PATH} from "../routes/Routes";
 
