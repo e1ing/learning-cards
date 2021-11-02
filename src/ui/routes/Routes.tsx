@@ -5,13 +5,15 @@ import {PasswordRecovery} from "../PasswordRecovery/PasswordRecovery";
 import {UpdatePassword} from "../UpdatePassword/UpdatePassword";
 import {Registration} from "../Registration/Registration";
 import {Login} from "../Login/Login";
+import {CheckEmail} from "../common/CheckEmail/CheckEmail";
 
 export const PATH = {
     LOGIN: "/login",
     PROFILE: "/profile",
     PASSWORD_RECOVERY: "/password-recovery",
     UPDATE_PASSWORD: "/update-password",
-    REGISTRATION: "/registration"
+    REGISTRATION: "/registration",
+    CHECK_EMAIL: "/check-email"
 }
 
 export const Routes = () => {
@@ -24,6 +26,7 @@ export const Routes = () => {
                 <Route path={PATH.UPDATE_PASSWORD} render={() => <UpdatePassword/>}/>
                 <Route path={PATH.REGISTRATION} render={() => <Registration/>}/>
                 <Route path={PATH.LOGIN} render={() => <Login/>}/>
+                <Route path={PATH.CHECK_EMAIL} render={() => <CheckEmail/>}/>
             </Switch>
         </div>
     )

@@ -1,0 +1,39 @@
+@import '../styles/mixins';
+@import '../styles/variables';
+
+
+.checkEmailArea {
+  width: 413px;
+  height: 600px;
+  top: 60px;
+  left: 434px;
+  border-radius: 8px;
+  background-color: $boardBackground;
+  @include flex(column, space-around, center, nowrap);
+
+  .h2Style {
+    @include text($headingFont, 26px, 600, 39px, $textColor);
+  }
+
+  .envelope {
+    width: 108px;
+    height: 108px;
+    background-color: #D7D8EF;
+    border-radius: 50%;
+
+    .iconEnvelope {
+      margin-top: 20px;
+      text-align: center;
+      color: $btnColor;
+      font-size: 60px;
+    }
+  }
+
+  .h3Style {
+    @include text($headingFont, 22px, 600, 33px, $textColor);
+  }
+
+  p {
+    @include text($headingFont, 16px, 400, 24px, $secondTextColor);
+  }
+}
