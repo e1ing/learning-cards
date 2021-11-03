@@ -10,7 +10,6 @@ import {setInitializedTC} from "../../bll/app-reducer";
 
 function App() {
 
-    const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
     const dispatch = useDispatch()
 
     useEffect(() => {

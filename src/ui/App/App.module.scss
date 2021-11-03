@@ -1,8 +1,9 @@
 @import '../common/styles/mixins';
 
 .commonStyles {
-  @include flex(column, center, center, nowrap);
+  min-width: 1008px;
   min-height: 100vh;
+  @include flex(column, center, center, nowrap);
   text-align: center;
   background: linear-gradient(180deg, #E6D4DE 0%, #9890C7 100%);
 }
