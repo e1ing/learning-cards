@@ -1,6 +1,6 @@
 import {Dispatch} from "redux";
 import {authAPI} from "../dal/api";
-import {setLoggedInAC} from "./auth-reducer/login-reducer";
+import {setLoggedInAC} from "./auth-reducer/auth-reducer";
 
 export type RequestStatusType = "idle" | "loading" | "succeeded" | "failed"
 

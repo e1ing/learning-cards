@@ -5,7 +5,7 @@ import {CustomButton} from '../common/CustomButton/CustomButton';
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import {PATH} from '../routes/Routes';
 import styles from './Login.module.scss';
-import {loginTC} from "../../bll/auth-reducer/login-reducer";
+import {loginTC} from "../../bll/auth-reducer/auth-reducer";
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from "../../bll/store";
 

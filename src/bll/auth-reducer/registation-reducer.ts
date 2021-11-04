@@ -4,12 +4,12 @@ import {setAppErrorAC, SetAppErrorAT, setAppStatusAC, SetAppStatusAT} from "../a
 
 
 type InitialStateType = typeof initialState;
-type ActionType = ReturnType<typeof registerUserAC>|SetAppStatusAT|SetAppErrorAT
+export type RegistrationAT = ReturnType<typeof registerUserAC>|SetAppStatusAT|SetAppErrorAT
 const initialState = {
     isRegistered: false
 }
 
-export const registrationReducer = (state: InitialStateType=initialState, action: ActionType) => {
+export const registrationReducer = (state: InitialStateType=initialState, action: RegistrationAT) => {
     switch (action.type){
         case "reg/REGISTER_USER":
             return {...state, isRegistered: action.isRegistered}
@@ -20,7 +20,7 @@ export const registrationReducer = (state: InitialStateType=initialState, action
 
 export const registerUserAC = (isRegistered: boolean) => ({type: "reg/REGISTER_USER", isRegistered}as const)
 
-export const registerUserTC = (data: AuthParamsType) => (dispatch: Dispatch<ActionType>) => {
+export const registerUserTC = (data: AuthParamsType) => (dispatch: Dispatch<RegistrationAT>) => {
     dispatch(setAppStatusAC('loading'));
     authAPI.register(data)
         .then(res => {

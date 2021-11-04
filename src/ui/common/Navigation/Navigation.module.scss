@@ -11,30 +11,35 @@
 
   .container {
     @include container();
-    @include flex(row, center, center, nowrap);
+    @include flex(row, space-between, center, nowrap);
     position: relative;
 
     .h2Style {
-      position: absolute;
-      width: 163px;
-      height: 39px;
-      left: 136px;
-      top: -12.5px;
       @include text($headingFont, 26px, 600, 39px, $textColor);
     }
 
-    .toggle {
-      width: 173px;
-      height: 100%;
-      :hover {
+    .buttonsArea {
+
+      @include flex(row, center, center, nowrap);
+      position: static;
+      top: 0px;
+
+      .toggle {
+        position: relative;
+        top: 0px;
         width: 173px;
         height: 60px;
-        background-color: #DCCCDB;
+
+        :hover {
+          background-color: #DCCCDB;
+        }
       }
-      .icon{
-        font-size: 40px;
-        color: $secondTextColor;
-      }
+    }
+
+    .icon {
+      margin-right: 10px;
+      font-size: 40px;
+      color: $secondTextColor;
     }
   }
 }
