@@ -6,7 +6,7 @@ import styles from './Registration.module.scss';
 import {useDispatch, useSelector} from 'react-redux';
 import {NavLink, Redirect} from 'react-router-dom';
 import {PATH} from "../routes/Routes";
-import {registerUserTC} from "../../bll/auth-reducer/registation-reducer";
+import {registerUserTC} from "../../bll/auth-reducer/registation-thunk";
 import {AppRootStateType} from '../../bll/store';
 import stylesCustom from '../common/CustomButton/CustomButton.module.scss'
 

@@ -11,7 +11,7 @@ import {
 
 
 type InitialStateType = typeof initialState;
-type SetLoggedInAT = ReturnType<typeof setLoggedInAC>
+export type SetLoggedInAT = ReturnType<typeof setLoggedInAC>
 export type AuthAT = SetLoggedInAT | SetAppStatusAT | SetInitializedAT | SetAppErrorAT
 
 const initialState = {

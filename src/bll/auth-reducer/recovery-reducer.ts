@@ -1,9 +1,11 @@
-type InitialStateType = typeof initialState;
+import {Dispatch} from "redux";
+import {AppAT, setAppStatusAC, setInitializedAC} from "../app-reducer";
+import {authAPI} from "../../dal/api";
 
-const initialState = {
-    email: "",
-    from: "test-front-admin <elvira-kisling@yandex.ru>",
-    message: "",
-    passwordRecoveryLink: `http://localhost:3000/learning-cards/update-password`
+export const recoveryTC = (email:string) => (dispatch: Dispatch<AppAT>)=> {
+    dispatch(setAppStatusAC('loading'));
+    authAPI.recoveryPassword(email)
+        .then(res=> {
+            dispatch(setInitializedAC(true));
+        })
 }
-
