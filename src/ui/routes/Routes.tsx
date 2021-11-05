@@ -5,7 +5,7 @@ import {PasswordRecovery} from "../PasswordRecovery/PasswordRecovery";
 import {UpdatePassword} from "../UpdatePassword/UpdatePassword";
 import {Registration} from "../Registration/Registration";
 import {Login} from "../Login/Login";
-import {CheckEmail} from "../common/CheckEmail/CheckEmail";
+import {CheckEmail} from "../CheckEmail/CheckEmail";
 import {PackList} from "../common/PackList/PackList";
 
 export const PATH = {
