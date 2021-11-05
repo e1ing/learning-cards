@@ -9,6 +9,7 @@ import {
     SetInitializedAT
 } from "../app-reducer";
 
+
 type InitialStateType = typeof initialState;
 type SetLoggedInAT = ReturnType<typeof setLoggedInAC>
 export type AuthAT = SetLoggedInAT | SetAppStatusAT | SetInitializedAT | SetAppErrorAT
@@ -29,6 +30,7 @@ export const authReducer = (state: InitialStateType = initialState, action: Auth
 export const setLoggedInAC = (isLoggedIn: boolean) => ({type: "login/SET_IS_LOGGED_IN", isLoggedIn} as const);
 
 export const loginTC = (data: AuthParamsType<boolean>) => (dispatch: Dispatch<AuthAT>) => {
+
     dispatch(setAppStatusAC('loading'));
     authAPI.login(data)
         .then(res => {
@@ -44,15 +46,29 @@ export const loginTC = (data: AuthParamsType<boolean>) => (dispatch: Dispatch<Au
         })
 }
 
-export const logoutTC = (): AuthAT =>
+
+export const logoutTC = () => (dispatch: Dispatch<AuthAT>) => {
+    dispatch(setAppStatusAC("loading"));
+    authAPI.logout()
+        .then(res=>{
+            dispatch(setLoggedInAC(false))
+            dispatch(setAppStatusAC("succeeded"))
+        })
+        .catch((e)=> {
+            const error = e.response ? e.response.data.error : (`Logout failed: ${e.message}.`)
+            console.log(error)
+        })
+}
+
+/*export const logoutTC = (): AppThunk =>
     async (dispatch) => {
         try {
             dispatch(setAppStatusAC("loading"));
-            await authAPI.logout()
+            const res = await authAPI.logout()
             dispatch(setLoggedInAC(false))
             dispatch(setAppStatusAC("succeeded"))
         } catch (e) {
             const error = e.response ? e.response.data.error : (`Logout failed: ${e.message}.`)
             console.log(error)
         }
-    }
+    }*/

@@ -6,7 +6,7 @@ import {RegistrationAT, registrationReducer} from "./auth-reducer/registation-re
 
 const rootReducer = combineReducers({
 app: appReducer,
-login: authReducer,
+auth: authReducer,
 registration: registrationReducer,
 })
 
