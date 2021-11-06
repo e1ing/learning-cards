@@ -1,25 +1,23 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styles from "./App.module.scss"
 import {Routes} from "../routes/Routes";
 import {Preloader} from '../common/Preloader/Preloader';
 import {CustomAlert} from '../common/CustomAlert/CustomAlert';
-import {AppRootStateType} from '../../bll/store';
-import {useDispatch, useSelector} from 'react-redux';
-import {setInitializedTC} from "../../bll/app-reducer";
+import {useDispatch} from 'react-redux';
 
 
 function App() {
 
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(setInitializedTC())
-    })
+    /* useEffect(() => {
+         dispatch(setInitializedTC())
+     })*/
 
 
-   /* const logoutHandler = () => {
-        dispatch(logoutTC())
-    }*/
+    /* const logoutHandler = () => {
+         dispatch(logoutTC())
+     }*/
 
     return (
         <div className={styles.commonStyles}>

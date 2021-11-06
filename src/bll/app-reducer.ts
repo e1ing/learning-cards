@@ -33,7 +33,7 @@ export const setAppStatusAC = (status: RequestStatusType) => ({type: "app/SET_ST
 export const setAppErrorAC = (error: string | null) => ({type: "app/SET_ERROR", error} as const);
 export const setInitializedAC = (isInitialized: boolean) => ({type: "app/SET_INITIALIZED", isInitialized} as const)
 
-export const setInitializedTC = () => (dispatch: Dispatch<AppAT>) => {
+/*export const setInitializedTC = () => (dispatch: Dispatch<AppAT>) => {
     authAPI.me().then(res => {
         dispatch(setLoggedInAC(true))
         dispatch(setInitializedAC(true))
@@ -43,5 +43,5 @@ export const setInitializedTC = () => (dispatch: Dispatch<AppAT>) => {
         .finally(() =>{
             dispatch(setInitializedAC(true))
         })
-}
+}*/
 

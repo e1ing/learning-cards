@@ -44,18 +44,18 @@ export const authAPI = {
         return instance.delete<string>(`auth/me`, {})
     },
 
-    recoveryPassword(email: string) {
+    passwordRecovery(email: string) {
         return instance.post<string>(`auth/forgot`, {
             email: email,
             from: `Learning cards <elvira-kisling@yandex.ru>`,
             message: `<div style="background-color: #9890C7 ; padding: 15px; font-size: 40px">
-                            Click <a href='http://localhost:3000/update-password/$token$'>here</a> 
+                            Click <a href='http://localhost:3000/password-update/$token$'>here</a> 
                             to restore your password
                       </div>`
         })
     },
 
-    updatePassword(resetPasswordToken: string, password: string) {
+    updatePassword(password: string, resetPasswordToken: string) {
         return instance.post<string>(`/auth/set-new-password`, {resetPasswordToken, password})
     }
 }

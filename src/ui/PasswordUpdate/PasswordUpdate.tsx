@@ -3,31 +3,44 @@ import {useFormik} from "formik";
 import styles from "./PasswordUpdate.module.scss";
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import {CustomButton} from "../common/CustomButton/CustomButton";
-
+import {Redirect, useParams} from 'react-router-dom';
+import {passwordUpdateTC} from "../../bll/auth-reducer/password-update-reducer";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "../../bll/store";
+import {PATH} from "../routes/Routes";
 
 type FormikErrorType = {
     password?: string
 }
 
 export const PasswordUpdate = () => {
+
+    const {token} = useParams<{ token: string }>();
+    const dispatch = useDispatch();
+    const isPasswordUpdated = useSelector<AppRootStateType, boolean>(state => state.passwordUpdate.isPasswordUpdated)
+
     const formik = useFormik({
         initialValues: {
-            password: "",
+            newPassword: "",
         },
         validate: (values) => {
             const errors: FormikErrorType = {};
-            if (!values.password) {
+            if (!values.newPassword) {
                 errors.password = 'Email is required';
-            } else if (values.password.length < 3) {
+            } else if (values.newPassword.length < 8) {
                 errors.password = 'Must be more then 3 characters';
             }
             return errors;
         },
         onSubmit: values => {
-            /*dispatch(loginTC(values));*/
+            dispatch(passwordUpdateTC(values.newPassword, token));
             formik.resetForm();
         },
     })
+
+    if (isPasswordUpdated) {
+        return <Redirect to={PATH.LOGIN}/>
+    }
 
     return (
         <div className={styles.updatePasswordArea}>
@@ -35,9 +48,9 @@ export const PasswordUpdate = () => {
             <h3 className={styles.h3Style}>Create new password</h3>
             <form onSubmit={formik.handleSubmit} className={styles.updatePasswordForm}>
 
-                <CustomInput type={"password"} placeholder={"Password"}
-                             {...formik.getFieldProps('password')}/>
-                {formik.errors.password ? <div>{formik.errors.password}</div> : null}
+                <CustomInput type={"password"} placeholder={"New password"}
+                             {...formik.getFieldProps('newPassword')}/>
+                {formik.errors.newPassword ? <div>{formik.errors.newPassword}</div> : null}
 
                 <p className={styles.text}>
                     Create new password and we will send you further instructions to email

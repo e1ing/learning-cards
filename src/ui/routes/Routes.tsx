@@ -12,7 +12,7 @@ export const PATH = {
     LOGIN: "/login",
     PROFILE: "/profile",
     PASSWORD_RECOVERY: "/password-recovery",
-    UPDATE_PASSWORD: "/update-password",
+    UPDATE_PASSWORD: "/password-update/:token",
     REGISTRATION: "/registration",
     CHECK_EMAIL: "/check-email",
     PACK_LIST: "/pack-list"

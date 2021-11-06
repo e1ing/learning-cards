@@ -7,7 +7,7 @@ import {NavLink, Redirect} from "react-router-dom";
 import {PATH} from "../routes/Routes";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../bll/store";
-import {passwordRecoveryTC, recoveryReducer} from "../../bll/auth-reducer/recovery-reducer";
+import {passwordRecoveryTC, passwordRecoveryReducer} from "../../bll/auth-reducer/password-recovery-reducer";
 
 
 type FormikErrorType = {
@@ -17,7 +17,7 @@ type FormikErrorType = {
 export const PasswordRecovery = () => {
 
     const dispatch = useDispatch();
-    const isRecoveryInitialized = useSelector<AppRootStateType, boolean>(state => state.recovery.isRecoveryInitialized)
+    const isRecoveryInitialized = useSelector<AppRootStateType, boolean>(state => state.passwordRecovery.isRecoveryInitialized)
 
     const formik = useFormik({
         initialValues: {
