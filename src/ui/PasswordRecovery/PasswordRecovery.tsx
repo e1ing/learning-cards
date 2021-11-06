@@ -3,8 +3,11 @@ import {useFormik} from "formik";
 import styles from "./PasswordRecovery.module.scss";
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import {CustomButton} from "../common/CustomButton/CustomButton";
-import {NavLink} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 import {PATH} from "../routes/Routes";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "../../bll/store";
+import {passwordRecoveryTC, recoveryReducer} from "../../bll/auth-reducer/recovery-reducer";
 
 
 type FormikErrorType = {
@@ -12,6 +15,9 @@ type FormikErrorType = {
 }
 
 export const PasswordRecovery = () => {
+
+    const dispatch = useDispatch();
+    const isRecoveryInitialized = useSelector<AppRootStateType, boolean>(state => state.recovery.isRecoveryInitialized)
 
     const formik = useFormik({
         initialValues: {
@@ -27,11 +33,13 @@ export const PasswordRecovery = () => {
             return errors;
         },
         onSubmit: values => {
-            /*dispatch(loginTC(values));*/
+            dispatch(passwordRecoveryTC(values.email));
             formik.resetForm();
         },
     })
-
+    if (isRecoveryInitialized) {
+        return <Redirect to={PATH.CHECK_EMAIL}/>
+    }
     return (
         <div className={styles.passwordRecoveryArea}>
             <h2 className={styles.h2Style}>it-incubator</h2>

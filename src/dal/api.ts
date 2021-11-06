@@ -47,9 +47,9 @@ export const authAPI = {
     recoveryPassword(email: string) {
         return instance.post<string>(`auth/forgot`, {
             email: email,
-            from: `test-front-admin <elvira-kisling@yandex.ru>`,
-            message: `<div style="background-color: lime; padding: 15px">
-                            Click <a href='http://localhost:3000//$token$'>here</a> //$token$ надо для токена для восстановления пароля
+            from: `Learning cards <elvira-kisling@yandex.ru>`,
+            message: `<div style="background-color: #9890C7 ; padding: 15px; font-size: 40px">
+                            Click <a href='http://localhost:3000/update-password/$token$'>here</a> 
                             to restore your password
                       </div>`
         })

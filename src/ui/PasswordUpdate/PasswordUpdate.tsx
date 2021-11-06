@@ -1,6 +1,6 @@
 import React from 'react';
 import {useFormik} from "formik";
-import styles from "./UpdatePassword.module.scss";
+import styles from "./PasswordUpdate.module.scss";
 import {CustomInput} from "../common/CustomInput/CustomInput";
 import {CustomButton} from "../common/CustomButton/CustomButton";
 
@@ -9,7 +9,7 @@ type FormikErrorType = {
     password?: string
 }
 
-export const UpdatePassword = () => {
+export const PasswordUpdate = () => {
     const formik = useFormik({
         initialValues: {
             password: "",

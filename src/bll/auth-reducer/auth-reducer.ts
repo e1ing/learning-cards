@@ -43,8 +43,8 @@ export const loginTC = (data: AuthParamsType<boolean>) => (dispatch: Dispatch<Au
             console.log(error)
             dispatch(setAppErrorAC(error))
             dispatch(setAppStatusAC("failed"))
-        })
-}
+        });
+};
 
 
 export const logoutTC = () => (dispatch: Dispatch<AuthAT>) => {
