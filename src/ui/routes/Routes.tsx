@@ -6,7 +6,8 @@ import {PasswordUpdate} from "../PasswordUpdate/PasswordUpdate";
 import {Registration} from "../Registration/Registration";
 import {Login} from "../Login/Login";
 import {CheckEmail} from "../CheckEmail/CheckEmail";
-import {PackList} from "../common/PackList/PackList";
+import {PackList} from "../PacksList/PacksList";
+
 
 export const PATH = {
     LOGIN: "/login",

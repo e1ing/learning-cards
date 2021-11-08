@@ -1,17 +1,51 @@
+@import '../common/styles/mixins';
+
+.packList {
+  @include flex(raw, center, center, nowrap);
+
+.navBlock{
+  width: 243px;
+  height: 636px;
+  left: 136px;
+  top: 84px;
+  background: #ECECF9;
+  border-radius: 8px 0px 0px 8px;
+  .toggleBtn{
+    width: 96.79px;
+    height: 36px;
+    radius: 2px;
+    background-color: #9A91C8;
+    border-radius: 2px;
+    border: 0;
+  }
+  .navText{
+    @include text($headingFont, 16px, 600, 33px, $textColor);
+    text-align: left;
+    margin-left: 25px;
+  }
+}
 .packListArea {
   width: 837px;
   height: 636px;
   left: 136px;
   top: 84px;
   background: #FEFEFF;
-  border-radius: 8px;
-  .navBlock{
-    position: absolute;
-    width: 243px;
-    height: 636px;
-    left: 136px;
-    top: 84px;
-    background: #ECECF9;
-    border-radius: 8px;
+  border-radius: 0px 8px 8px 0px;
+
+  .h3Style{
+    position: relative;
+    text-align: left;
+    left: 45px;
+    @include text($headingFont, 22px, 600, 33px, $textColor);
   }
+
+  .tools{
+    @include flex(raw, space-around, center, nowrap);
+  }
+}
+
+  .btnStyle{
+    width: 184px;
+  }
+
 }

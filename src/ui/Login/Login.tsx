@@ -48,7 +48,7 @@ export const Login = () => {
     })
 
     if (isLoggedIn) {
-        return <Redirect to={PATH.PROFILE}/>
+        return <Redirect to={PATH.PACK_LIST}/>
     }
 
     return (
