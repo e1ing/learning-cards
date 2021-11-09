@@ -6,13 +6,14 @@ const instance = axios.create({
     withCredentials: true,
 })
 
+//authentication API
 export type AuthParamsType<D = {}> = {
     email: string;
     password: string;
     data?: D
 }
 
-type ResponseType = {
+type AuthResponseType = {
     _id: string
     email: string
     name: string
@@ -29,7 +30,7 @@ type ResponseType = {
 
 export const authAPI = {
     login(data: AuthParamsType<boolean>) {
-        return instance.post<ResponseType>(`auth/login`, data)
+        return instance.post<AuthResponseType>(`auth/login`, data)
     },
 
     register(data: AuthParamsType) {
@@ -37,7 +38,7 @@ export const authAPI = {
     },
 
     me() {
-        return instance.post<ResponseType>(`auth/me`, {})
+        return instance.post<AuthResponseType>(`auth/me`, {})
     },
 
     logout() {
@@ -60,7 +61,41 @@ export const authAPI = {
     }
 }
 
+//packs API
+type CardsPackType = {
+    _id: string
+    user_ud: string
+    name: string
+    path: string
+    cardsCount: number
+    grade: number
+    shots: number
+    rating: number
+    type: string
+    created: Date
+    updated: Date
+    _v: number
+}
 
+export type PacksResponseType = {
+    cardPacks: Array<CardsPackType>
+    cardPacksTotalCount: number
+    maxCardsCount: number
+    minCardsCount: number
+    page: number
+    padeCount: number
+}
+
+type CardsPack
+
+export const packsAPI = {
+    getPack() {
+        return instance.get<PacksResponseType>(`/cards/pack`)
+    },
+    createPack(data: ){
+        return instance.post<CardsPackType>(`/cards/pack`, data)
+    }
+}
 
 
 

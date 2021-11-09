@@ -40,7 +40,17 @@ export const PackList = () => {
                 </span>
 
                     <div className={styles.table}>
-
+<table>
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Cards</td>
+        <td>Last Updated</td>
+        <td>Crated by</td>
+        <td>Actions</td>
+    </tr>
+    </thead>
+</table>
                     </div>
 
                 </div>
