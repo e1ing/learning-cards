@@ -27,7 +27,6 @@ type AuthResponseType = {
     error?: string
 }
 
-
 export const authAPI = {
     login(data: AuthParamsType<boolean>) {
         return instance.post<AuthResponseType>(`auth/login`, data)
@@ -62,7 +61,7 @@ export const authAPI = {
 }
 
 //packs API
-type CardsPackType = {
+type CardType = {
     _id: string
     user_ud: string
     name: string
@@ -78,7 +77,7 @@ type CardsPackType = {
 }
 
 export type PacksResponseType = {
-    cardPacks: Array<CardsPackType>
+    cardPacks: Array<CardType>
     cardPacksTotalCount: number
     maxCardsCount: number
     minCardsCount: number
@@ -86,16 +85,40 @@ export type PacksResponseType = {
     padeCount: number
 }
 
-type CardsPack
-
 export const packsAPI = {
     getPack() {
         return instance.get<PacksResponseType>(`/cards/pack`)
     },
-    createPack(data: ){
-        return instance.post<CardsPackType>(`/cards/pack`, data)
+    createPack(data:) {
+        return instance.post<CardType>(`/cards/pack`, data)
+    },
+    deletePack() {
+        return instance.delete<string>(`/cards/pack`, {})
+    },
+    updatePak(_id: string) {
+        return instance.put<string>(`/cards/pack`, _id)
     }
 }
+
+
+//cards API
+
+export const cardsAPI = {
+    getCard() {
+        return instance.get<>(`/cards/card`)
+    },
+    createCard() {
+
+    },
+    deleteCard() {
+
+    },
+    updateCard() {
+
+    }
+}
+
+
 
 
 
