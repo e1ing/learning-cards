@@ -63,7 +63,7 @@ export const authAPI = {
 //packs API
 type CardType = {
     _id: string
-    user_ud: string
+    user_id: string
     name: string
     path: string
     cardsCount: number
@@ -73,11 +73,11 @@ type CardType = {
     type: string
     created: Date
     updated: Date
-    _v: number
+    __v: number
 }
 
 export type PacksResponseType = {
-    cardPacks: Array<CardType>
+    cardsPack: Array<CardType>
     cardPacksTotalCount: number
     maxCardsCount: number
     minCardsCount: number
@@ -86,17 +86,25 @@ export type PacksResponseType = {
 }
 
 export const packsAPI = {
-    getPack() {
-        return instance.get<PacksResponseType>(`/cards/pack`)
+    getPacks() {
+        return instance.get<PacksResponseType>(`cards/pack`)
     },
-    createPack(data:) {
-        return instance.post<CardType>(`/cards/pack`, data)
+    createPack(name: string) {
+        return instance.post<CardType>(`cards/pack`, {
+            cardsPack:{
+                name: name
+            }
+        })
     },
-    deletePack() {
-        return instance.delete<string>(`/cards/pack`, {})
+    deletePack(_id: string) {
+        return instance.delete<string>(`cards/pack?_id=${_id}`)
     },
-    updatePak(_id: string) {
-        return instance.put<string>(`/cards/pack`, _id)
+    updatePak(id: string) {
+        return instance.put<string>(`cards/pack`, {
+            cardsPack: {
+                _id: id
+            }
+        })
     }
 }
 
@@ -105,10 +113,10 @@ export const packsAPI = {
 
 export const cardsAPI = {
     getCard() {
-        return instance.get<>(`/cards/card`)
+        return instance.get<>(`cards/card`)
     },
     createCard() {
-
+        return instance.post<>(`cards/card`)
     },
     deleteCard() {
 
