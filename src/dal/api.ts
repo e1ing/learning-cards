@@ -61,7 +61,7 @@ export const authAPI = {
 }
 
 //packs API
-type CardType = {
+type PackType = {
     _id: string
     user_id: string
     name: string
@@ -77,7 +77,7 @@ type CardType = {
 }
 
 export type PacksResponseType = {
-    cardsPack: Array<CardType>
+    cardsPack: Array<PackType>
     cardPacksTotalCount: number
     maxCardsCount: number
     minCardsCount: number
@@ -86,21 +86,21 @@ export type PacksResponseType = {
 }
 
 export const packsAPI = {
-    getPacks() {
-        return instance.get<PacksResponseType>(`cards/pack`)
+    getPacks(userId: string) {
+        return instance.get<PacksResponseType>(`cards/pack?user_id=${userId}`)
     },
     createPack(name: string) {
-        return instance.post<CardType>(`cards/pack`, {
+        return instance.post<PackType>(`cards/pack`, {
             cardsPack:{
                 name: name
             }
         })
     },
     deletePack(_id: string) {
-        return instance.delete<string>(`cards/pack?_id=${_id}`)
+        return instance.delete<string>(`cards/pack?id=${_id}`)
     },
-    updatePak(id: string) {
-        return instance.put<string>(`cards/pack`, {
+    updatePaсk(id: string) {
+        return instance.put<PackType>(`cards/pack`, {
             cardsPack: {
                 _id: id
             }
@@ -111,18 +111,43 @@ export const packsAPI = {
 
 //cards API
 
+type CardType = {
+    answer: string
+    question: string
+    packId: string
+    grade: number
+    rating: number
+    shots: number
+    type: string
+    user_id: string
+    created: Date
+    updated: Date
+    __v: number
+    _id: string
+}
+
+type CardsResponseType = {
+    cards: Array<CardType>
+    cardsTotalCount: number
+    maxGrade: number
+    minGrade: number
+    page: number
+    pageCount: number
+    packUserId: number
+}
+
 export const cardsAPI = {
-    getCard() {
-        return instance.get<>(`cards/card`)
+    getCard(packId: string) {
+        return instance.get<CardsResponseType>(`cards/card?cardsPack_id=${packId}`)
     },
-    createCard() {
-        return instance.post<>(`cards/card`)
+    createCard(packId: string) {
+        return instance.post<CardType>(`cards/card`, {card: {cardsPack_id: packId}})
     },
-    deleteCard() {
-
+    deleteCard(cardId: string) {
+return instance.delete<any>(`cards/card?&id=${cardId}`)
     },
-    updateCard() {
-
+    updateCard(cardId: string) {
+return instance.put<CardsResponseType>(`cards/card`, {card: {_id: cardId}})
     }
 }
 
