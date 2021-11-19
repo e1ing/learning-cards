@@ -61,7 +61,7 @@ export const authAPI = {
 }
 
 //packs API
-type PackType = {
+export type PackType = {
     _id: string
     user_id: string
     name: string
