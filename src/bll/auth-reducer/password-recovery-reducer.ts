@@ -3,7 +3,6 @@ import {setAppErrorAC, setAppStatusAC} from "../app-reducer";
 import {authAPI} from "../../dal/api";
 
 type InitialStateType = typeof initialState;
-/*export type SetRecoveryInitializationAT = ReturnType<typeof setRecoveryInitializationAC>*/
 export type PasswordRecoveryAT = ReturnType<typeof setRecoveryInitializationAC>
 const initialState = {
     isRecoveryInitialized: false
@@ -11,7 +10,7 @@ const initialState = {
 
 export const passwordRecoveryReducer = (state: InitialStateType=initialState, action: PasswordRecoveryAT):InitialStateType => {
     switch (action.type){
-        case "recovery/SET-RECOVERY-INITIALIZATION":
+        case "recovery/SET_RECOVERY_INITIALIZATION":
             return {...state, isRecoveryInitialized: action.isRecoveryInitialized}
         default:
             return state;
@@ -19,7 +18,7 @@ export const passwordRecoveryReducer = (state: InitialStateType=initialState, ac
 }
 
 const setRecoveryInitializationAC = (isRecoveryInitialized: boolean) =>({
-    type: "recovery/SET-RECOVERY-INITIALIZATION", isRecoveryInitialized} as const)
+    type: "recovery/SET_RECOVERY_INITIALIZATION", isRecoveryInitialized} as const)
 
 export const passwordRecoveryTC = (email:string) => (dispatch: Dispatch)=> {
     dispatch(setAppStatusAC('loading'));
