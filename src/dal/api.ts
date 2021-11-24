@@ -64,6 +64,7 @@ export const authAPI = {
 export type PackType = {
     _id: string
     user_id: string
+    user_name: string //absent in API
     name: string
     path: string
     cardsCount: number
@@ -110,7 +111,6 @@ export const packsAPI = {
 
 
 //cards API
-
 type CardType = {
     answer: string
     question: string

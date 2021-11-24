@@ -20,7 +20,7 @@ export const Navigation = () => {
                 <h2 className={styles.h2Style}>It-incubator</h2>
                 <div className={styles.buttonsArea}>
                     <div className={styles.toggle}>
-                        <NavLink to={PATH.PACK_LIST} style={{textDecoration: 'none'}}>
+                        <NavLink to={PATH.PACKS_LIST} style={{textDecoration: 'none'}}>
                             {
                                 <div>
                                     <FontAwesomeIcon className={styles.icon} icon={faAd}/>
