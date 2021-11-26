@@ -7,14 +7,14 @@ type InitialStateType = {
     packs: PackType[]
     packUser_id: string
 };
-export type PacksAT = ReturnType<typeof setPacksAC> | ReturnType<typeof setPackUser_idAC>;
+export type PacksActionType = ReturnType<typeof setPacksAC> | ReturnType<typeof setPackUser_idAC>;
 
 const initialState: InitialStateType = {
     packs: [],
     packUser_id: "",
 };
 
-export const packsReducer = (state: InitialStateType = initialState, action: PacksAT): InitialStateType => {
+export const packsReducer = (state: InitialStateType = initialState, action: PacksActionType): InitialStateType => {
     switch (action.type) {
         case "packs/SET_PACKS":
             return {...state, packs: action.packs}

@@ -111,7 +111,7 @@ export const packsAPI = {
 
 
 //cards API
-type CardType = {
+export type CardType = {
     answer: string
     question: string
     packId: string
@@ -126,7 +126,7 @@ type CardType = {
     _id: string
 }
 
-type CardsResponseType = {
+export type CardsResponseType = {
     cards: Array<CardType>
     cardsTotalCount: number
     maxGrade: number
@@ -137,7 +137,7 @@ type CardsResponseType = {
 }
 
 export const cardsAPI = {
-    getCard(packId: string) {
+    getCards(packId: string) {
         return instance.get<CardsResponseType>(`cards/card?cardsPack_id=${packId}`)
     },
     createCard(packId: string) {
@@ -146,7 +146,7 @@ export const cardsAPI = {
     deleteCard(cardId: string) {
 return instance.delete<any>(`cards/card?&id=${cardId}`)
     },
-    updateCard(cardId: string) {
+    updateCard(cardId: string, packId: string) {
 return instance.put<CardsResponseType>(`cards/card`, {card: {_id: cardId}})
     }
 }

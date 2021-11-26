@@ -10,6 +10,7 @@ type PackPropsType = {
 }
 
 export const Pack: FC<PackPropsType> = ({pack, linkToPage}) => {
+
     return (
         <>
             <td>{pack.name}</td>
@@ -18,9 +19,9 @@ export const Pack: FC<PackPropsType> = ({pack, linkToPage}) => {
             <td>{pack.user_name}</td>
             <td>
 
-                <CustomActionButton linkToPage={PATH.CARDS_LIST}>Delete</CustomActionButton>
+               {/* <CustomActionButton linkToPage={PATH.CARDS_LIST}>Delete</CustomActionButton>
                 <CustomActionButton>Edit</CustomActionButton>
-                <CustomActionButton>Learn</CustomActionButton>
+                <CustomActionButton>Learn</CustomActionButton>*/}
             </td>
         </>
     )
