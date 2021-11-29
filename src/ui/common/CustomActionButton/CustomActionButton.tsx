@@ -1,22 +1,18 @@
-import React, { FC} from 'react';
-import {NavLink, NavLinkProps} from 'react-router-dom';
-import styles from './CustomActionButton.module.scss';
-import {PATH} from "../../routes/Routes";
+import React, {ButtonHTMLAttributes, DetailedHTMLProps, FC} from 'react';
+import styles from './CustomButton.module.scss';
 
-type DefaultButtonPropsType =  NavLinkProps
-type CustomButtonPropsType = DefaultButtonPropsType & {
-    linkToPage: string
-}
-/*errorCase: boolean*/
+type DefaultButtonPropsType =  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+type CustomButtonPropsType = DefaultButtonPropsType & {btnColor: string}
 
-export const CustomActionButton: FC<CustomButtonPropsType> = ({className,linkToPage}) => {
-const btnColor = {backgroundColor: "#21268FFF"}
-   /* const finalClassName = `${errorCase ? styles.errorCase : styles.default} ${className}`;*/
+
+export const CustomActionButton: FC<CustomButtonPropsType> = ({btnColor, ...restProps}) => {
 
     return (
-     <NavLink to={linkToPage}
-         className={styles.button}
-         >
-     </NavLink>
- )
+        <button
+            style={{background: btnColor}}
+            className={styles.button}
+            {...restProps}
+        >
+        </button>
+    )
 }

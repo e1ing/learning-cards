@@ -1,8 +1,6 @@
 import React, {FC} from 'react';
-import {NavLink} from 'react-router-dom';
 import {PackType} from "../../../dal/api";
 import {CustomActionButton} from "../../common/CustomActionButton/CustomActionButton";
-import {PATH} from '../../routes/Routes';
 
 type PackPropsType = {
     pack: PackType
@@ -18,10 +16,9 @@ export const Pack: FC<PackPropsType> = ({pack, linkToPage}) => {
             <td>{pack.updated}</td>
             <td>{pack.user_name}</td>
             <td>
-
-               {/* <CustomActionButton linkToPage={PATH.CARDS_LIST}>Delete</CustomActionButton>
-                <CustomActionButton>Edit</CustomActionButton>
-                <CustomActionButton>Learn</CustomActionButton>*/}
+                    <CustomActionButton btnColor={"red"}>Delete</CustomActionButton>
+                    <CustomActionButton btnColor={"#D7D8EF"}>Edit</CustomActionButton>
+                    <CustomActionButton btnColor={"#D7D8EF"}>Learn</CustomActionButton>
             </td>
         </>
     )

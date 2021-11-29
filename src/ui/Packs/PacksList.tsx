@@ -3,7 +3,7 @@ import {Navigation} from '../common/Navigation/Navigation';
 import styles from './PacksList.module.scss'
 import {SearchLine} from "../common/SearchLine/SearchLine";
 import {CustomButton} from "../common/CustomButton/CustomButton";
-import CustomSlider from "../common/CustomSlider/CustomSlider";
+import CustomSlider from "../common/CustomRange/CustomRange";
 
 export const PackList = () => {
 
