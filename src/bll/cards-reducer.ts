@@ -27,7 +27,7 @@ export const getCardsTC = (packId: string): AppThunk => (dispatch, getState) => 
     dispatch(setAppStatusAC('loading'));
     cardsAPI.getCards(packId)
         .then(res => {
-            dispatch(setCardsAC(res.data.cards))
+           /* dispatch(setCardsAC(res.data.cards))*/
             dispatch(setAppStatusAC('succeeded'));
         })
         .catch(error => {
@@ -39,7 +39,7 @@ export const createCardTC = (packId: string): AppThunk => (dispatch, getState) =
     dispatch(setAppStatusAC('loading'));
     cardsAPI.createCard(packId)
         .then(res => {
-            dispatch(getCardsTC(res.data.cards))
+            /*dispatch(getCardsTC(res.data.cards))*/
             dispatch(setAppStatusAC('succeeded'));
         })
         .catch(error => {
@@ -63,7 +63,7 @@ export const updateCardTC = (cardId: string, packId: string): AppThunk => (dispa
     dispatch(setAppStatusAC('loading'));
     cardsAPI.updateCard(cardId, packId)
         .then(res => {
-            dispatch(getCardsTC(res.data.cards))
+           /* dispatch(getCardsTC(res.data.cards))*/
             dispatch(setAppStatusAC('succeeded'));
         })
         .catch(error => {

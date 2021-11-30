@@ -1,11 +1,15 @@
 import React, { FC } from 'react';
 import styles from './PackListTble.module.scss'
+import {useSelector} from "react-redux";
+import {AppRootStateType} from "../../../bll/store";
+import {PackType} from "../../../dal/api";
 
 export type CustomTablePropsType = {
 
 }
 
 const PackListTable: FC<CustomTablePropsType> = () => {
+    const packs = useSelector<AppRootStateType, Array<PackType>>(state => state.packsReducer.packs)
 
     return (
         <div>

@@ -1,13 +1,18 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {PackType} from "../../../dal/api";
 import {CustomActionButton} from "../../common/CustomActionButton/CustomActionButton";
 
+
 type PackPropsType = {
     pack: PackType
-    linkToPage: string
 }
 
-export const Pack: FC<PackPropsType> = ({pack, linkToPage}) => {
+export const Pack: FC<PackPropsType> = React.memo(({pack}) => {
+
+    const [deletePackModal, setDeletePackModal] = useState<boolean>(false)
+    const [editPackModal, setEditPackModal] = useState<boolean>(false)
+    const openDeletePackModal = () => setDeletePackModal(true)
+    const openEditPackModal = () => setEditPackModal(true)
 
     return (
         <>
@@ -16,10 +21,16 @@ export const Pack: FC<PackPropsType> = ({pack, linkToPage}) => {
             <td>{pack.updated}</td>
             <td>{pack.user_name}</td>
             <td>
-                    <CustomActionButton btnColor={"red"}>Delete</CustomActionButton>
-                    <CustomActionButton btnColor={"#D7D8EF"}>Edit</CustomActionButton>
+                <>
+                    <CustomActionButton btnColor={"red"} onClick={openDeletePackModal}>Delete</CustomActionButton>
+                    <CustomActionButton btnColor={"#D7D8EF"} onClick={openEditPackModal}>Edit</CustomActionButton>
                     <CustomActionButton btnColor={"#D7D8EF"}>Learn</CustomActionButton>
+                </>
             </td>
+
+            {}
+
         </>
     )
-}
+
+});
