@@ -4,6 +4,7 @@ import styles from './PacksList.module.scss'
 import {SearchLine} from "../common/SearchLine/SearchLine";
 import {CustomButton} from "../common/CustomButton/CustomButton";
 import CustomSlider from "../common/CustomRange/CustomRange";
+import CustomRange from "../common/CustomRange/CustomRange";
 
 export const PackList = () => {
 
@@ -24,7 +25,7 @@ export const PackList = () => {
                     <button className={styles.toggleBtn}>My</button>
                     <button className={styles.toggleBtn}>All</button>
                     <p className={styles.navText}> Number of cards</p>
-                    <CustomSlider/>
+                    <CustomRange/>
                 </div>
 
                 <div className={styles.packListArea}>

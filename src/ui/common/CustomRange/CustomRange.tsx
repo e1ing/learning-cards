@@ -1,52 +1,28 @@
-import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes} from "react";
+import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, useState} from "react";
 import s from "./CustomRange.module.scss";
+import {Range, getTrackBackground} from 'react-range';
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 
-type RangeSliderPropsType = DefaultInputPropsType & {
+type RangeRangePropsType = DefaultInputPropsType & {
     onChangeRange?: (value: number) => void
 };
 
-const RangeSlider: React.FC<RangeSliderPropsType> = (
-    {
-        type, // достаём и игнорируем чтобы нельзя было задать другой тип инпута
-        onChange, onChangeRange,
-        className,
-
-        ...restProps// все остальные пропсы попадут в объект restProps
-    }
-) => {
-    const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange && onChange(e); // сохраняем старую функциональность
-
-        onChangeRange && onChangeRange(+e.currentTarget.value);
-    }
-
-    const finalRangeClassName = `${s.range} ${className ? className : ""}`;
+const CustomRange: React.FC = () => {
+    /*const {minValue, maxValue} = shop.settings;
+    const [values, setValues] = useState([minValue, maxValue]);*/
 
     return (
-        <div>
-            <span>
-            <input
-                type={"range"}
-                onChange={onChangeCallback}
-                className={finalRangeClassName}
+        <></>
+     /*   <Range
+            values={values}
+            step={500}
+            min={minPrice}
+            max={maxPrice}
+        />*/
 
-                {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
-            />
-                </span>
-            <span>
-            <input
-                type={"range"}
-                onChange={onChangeCallback}
-                className={finalRangeClassName}
-
-                {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
-            />
-                </span>
-        </div>
     );
 }
 
-export default RangeSlider;
+export default CustomRange;
