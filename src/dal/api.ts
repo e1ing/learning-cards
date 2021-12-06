@@ -13,7 +13,7 @@ export type AuthParamsType<D = {}> = {
     data?: D
 }
 
-type AuthResponseType = {
+export type AuthResponseType = {
     _id: string
     email: string
     name: string

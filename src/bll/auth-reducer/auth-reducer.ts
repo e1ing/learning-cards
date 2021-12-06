@@ -1,5 +1,5 @@
 import {Dispatch} from "redux";
-import {authAPI, AuthParamsType} from "../../dal/api";
+import {authAPI, AuthParamsType, AuthResponseType} from "../../dal/api";
 import {
     setAppErrorAC,
     SetAppErrorAT,
@@ -9,13 +9,28 @@ import {
     SetInitializedAT
 } from "../app-reducer";
 
-
 type InitialStateType = typeof initialState;
 export type SetLoggedInAT = ReturnType<typeof setLoggedInAC>
-export type AuthAT = SetLoggedInAT | SetAppStatusAT | SetInitializedAT | SetAppErrorAT
+export type InitializeProfileAT = ReturnType<typeof initializeProfileAC>
+export type AuthAT = SetLoggedInAT | SetAppStatusAT | SetInitializedAT | SetAppErrorAT |InitializeProfileAT
 
 const initialState = {
-    isLoggedIn: false
+    isLoggedIn: false,
+    profile: {
+        _id: '',
+        email: '',
+        name: '',
+        avatar: '',
+        created: '',
+        updated: '',
+        isAdmin: false,
+        verified: false,
+        rememberMe: false,
+        publicCardPacksCount: 0,
+        /*token: '',
+        tokenDeathTime: 0,
+        __v: 0,*/
+    } || null,
 }
 
 export const authReducer = (state: InitialStateType = initialState, action: AuthAT): InitialStateType => {
@@ -28,7 +43,7 @@ export const authReducer = (state: InitialStateType = initialState, action: Auth
 }
 
 export const setLoggedInAC = (isLoggedIn: boolean) => ({type: "login/SET_IS_LOGGED_IN", isLoggedIn} as const);
-
+export const initializeProfileAC = (profile: AuthResponseType) => ({type: "login/INITIALIZE_PROFILE", profile} as const);
 export const loginTC = (data: AuthParamsType<boolean>) => (dispatch: Dispatch<AuthAT>) => {
 
     dispatch(setAppStatusAC('loading'));
@@ -50,11 +65,11 @@ export const loginTC = (data: AuthParamsType<boolean>) => (dispatch: Dispatch<Au
 export const logoutTC = () => (dispatch: Dispatch<AuthAT>) => {
     dispatch(setAppStatusAC("loading"));
     authAPI.logout()
-        .then(res=>{
+        .then(res => {
             dispatch(setLoggedInAC(false))
             dispatch(setAppStatusAC("succeeded"))
         })
-        .catch((e)=> {
+        .catch((e) => {
             const error = e.response ? e.response.data.error : (`Logout failed: ${e.message}.`)
             console.log(error)
         })
