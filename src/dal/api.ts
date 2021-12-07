@@ -18,13 +18,13 @@ export type AuthResponseType = {
     email: string
     name: string
     avatar?: string
-    publicCardPackCount: number
+    publicCardPacksCount: number
+
     created: Date
     updated: Date
     isAdmin: boolean
     verified: boolean
     rememberMe: boolean
-    error?: string
 }
 
 export const authAPI = {

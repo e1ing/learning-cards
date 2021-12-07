@@ -9,41 +9,30 @@ import {
     SetInitializedAT
 } from "../app-reducer";
 
+
 type InitialStateType = typeof initialState;
 export type SetLoggedInAT = ReturnType<typeof setLoggedInAC>
-export type InitializeProfileAT = ReturnType<typeof initializeProfileAC>
-export type AuthAT = SetLoggedInAT | SetAppStatusAT | SetInitializedAT | SetAppErrorAT |InitializeProfileAT
+
+export type AuthAT = SetLoggedInAT | SetAppStatusAT | SetInitializedAT | SetAppErrorAT
+
+
 
 const initialState = {
     isLoggedIn: false,
-    profile: {
-        _id: '',
-        email: '',
-        name: '',
-        avatar: '',
-        created: '',
-        updated: '',
-        isAdmin: false,
-        verified: false,
-        rememberMe: false,
-        publicCardPacksCount: 0,
-        /*token: '',
-        tokenDeathTime: 0,
-        __v: 0,*/
-    } || null,
 }
 
 export const authReducer = (state: InitialStateType = initialState, action: AuthAT): InitialStateType => {
     switch (action.type) {
         case "login/SET_IS_LOGGED_IN":
             return {...state, isLoggedIn: action.isLoggedIn}
+
         default:
             return state
     }
 }
 
 export const setLoggedInAC = (isLoggedIn: boolean) => ({type: "login/SET_IS_LOGGED_IN", isLoggedIn} as const);
-export const initializeProfileAC = (profile: AuthResponseType) => ({type: "login/INITIALIZE_PROFILE", profile} as const);
+
 export const loginTC = (data: AuthParamsType<boolean>) => (dispatch: Dispatch<AuthAT>) => {
 
     dispatch(setAppStatusAC('loading'));
