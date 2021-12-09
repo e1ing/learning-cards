@@ -1,5 +1,5 @@
-import {AuthResponseType} from "../../dal/api";
-import {AuthAT} from "./auth-reducer";
+import {AppThunk} from "../store";
+import {setAppStatusAC} from "../app-reducer";
 
 export type UserType = {
     _id: string;
@@ -47,3 +47,8 @@ export const profileReducer = (state: InitialStateType = initialState, action: P
 }
 
 export const setUserAC = (user: UserType) => ({type: "profile/SET_USER", user} as const);
+
+export const getUsersAC = (): AppThunk => (dispatch) =>{
+    dispatch(setAppStatusAC('loading'));
+
+}

@@ -152,7 +152,39 @@ return instance.put<CardsResponseType>(`cards/card`, {card: {_id: cardId}})
 }
 
 
+//profile API
+/*type UserType = {
+    _id: string
+    email: string
+    name: string
+    avatar?: string
+    publicCardPacksCount: number
 
+    created: Date
+    updated: Date
+    isAdmin: boolean
+    verified: boolean
+    rememberMe: boolean
+}*/
+
+type GradeResponseType = {
+    _id: string
+    cardsPack_id: string
+    card_id: string
+    user_id: string
+    grade: number
+    shots: number
+}
+
+export const profileAPI = {
+    userUpdate(token: string, name: string, avatar: string){
+        return instance.put(`auth/me`, {token, name, avatar})
+    },
+
+    updateCardsGrade(grade: number, card_id: string) {
+        return instance.put<GradeResponseType>(`cards/grade`, {grade, card_id})
+    }
+}
 
 
 

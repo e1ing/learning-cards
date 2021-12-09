@@ -1,7 +1,6 @@
 import {packsAPI, PackType} from "../dal/api";
-import {Dispatch} from "redux";
 import {setAppErrorAC, setAppStatusAC} from "./app-reducer";
-import {AppRootStateType, AppThunk} from "./store";
+import {AppThunk} from "./store";
 
 type InitialStateType = {
     packs: PackType[]
