@@ -52,7 +52,7 @@ export const createPackTC = (name: string): AppThunk => (dispatch, getState) => 
         })
 };
 
-export const deletePacksTC = (packId: string): AppThunk => (dispatch, getState) => {
+export const deletePackTC = (packId: string): AppThunk => (dispatch, getState) => {
     dispatch(setAppStatusAC('loading'));
     packsAPI.deletePack(packId)
         .then(res => {
