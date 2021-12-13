@@ -33,7 +33,7 @@ dispatch(deletePackTC)
             <td>{pack.user_name}</td>
             <td>
                     <CustomActionButton btnColor={"red"} onClick={deletePackHandler}>Delete</CustomActionButton>
-                    <CustomActionButton btnColor={"#D7D8EF"} onClick={openEditPackModal}>Edit</CustomActionButton>
+                    <CustomActionButton btnColor={"#D7D8EF"}>Edit</CustomActionButton>
                     <CustomActionButton btnColor={"#D7D8EF"}>Learn</CustomActionButton>
             </td>
 

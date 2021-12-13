@@ -6,7 +6,7 @@ import {PasswordUpdate} from "../PasswordUpdate/PasswordUpdate";
 import {Registration} from "../Registration/Registration";
 import {Login} from "../Login/Login";
 import {CheckEmail} from "../CheckEmail/CheckEmail";
-import {PackList} from "../Packs/PacksList";
+import {PackPage} from "../Packs/PacksPage";
 import {CardsList} from "../Packs/Cards/CardsList";
 
 
@@ -32,7 +32,7 @@ export const Routes = () => {
                 <Route path={PATH.REGISTRATION} render={() => <Registration/>}/>
                 <Route path={PATH.LOGIN} render={() => <Login/>}/>
                 <Route path={PATH.CHECK_EMAIL} render={() => <CheckEmail/>}/>
-                <Route path={PATH.PACKS_LIST} render={() => <PackList/>}/>
+                <Route path={PATH.PACKS_LIST} render={() => <PackPage/>}/>
                 <Route path={PATH.CARDS_LIST} render={() => <CardsList/>}/>
             </Switch>
         </div>

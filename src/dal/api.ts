@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
     baseURL: 'https://neko-back.herokuapp.com/2.0/',
-     /*"http://localhost:7542/2.0/",*/
+    /*"http://localhost:7542/2.0/",*/
     withCredentials: true,
 })
 
@@ -92,7 +92,7 @@ export const packsAPI = {
     },
     createPack(name: string) {
         return instance.post<PackType>(`cards/pack`, {
-            cardsPack:{
+            cardsPack: {
                 name: name
             }
         })
@@ -141,13 +141,21 @@ export const cardsAPI = {
         return instance.get<CardsResponseType>(`cards/card?cardsPack_id=${packId}`)
     },
     createCard(packId: string) {
-        return instance.post<CardType>(`cards/card`, {card: {cardsPack_id: packId}})
+        return instance.post<CardType>(`cards/card`, {
+            card: {
+                cardsPack_id: packId
+            }
+        })
     },
     deleteCard(cardId: string) {
-return instance.delete<any>(`cards/card?&id=${cardId}`)
+        return instance.delete<any>(`cards/card?&id=${cardId}`)
     },
     updateCard(cardId: string, packId: string) {
-return instance.put<CardsResponseType>(`cards/card`, {card: {_id: cardId}})
+        return instance.put<CardsResponseType>(`cards/card`, {
+            card: {
+                _id: cardId
+            }
+        })
     }
 }
 
@@ -177,7 +185,7 @@ type GradeResponseType = {
 }
 
 export const profileAPI = {
-    userUpdate(token: string, name: string, avatar: string){
+    userUpdate(token: string, name: string, avatar: string) {
         return instance.put(`auth/me`, {token, name, avatar})
     },
 

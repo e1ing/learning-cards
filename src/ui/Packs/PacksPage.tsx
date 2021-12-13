@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {Navigation} from '../common/Navigation/Navigation';
-import styles from './PacksList.module.scss'
+import styles from './PacksPage.module.scss'
 import {SearchLine} from "../common/SearchLine/SearchLine";
 import {CustomButton} from "../common/CustomButton/CustomButton";
 import CustomRange from "../common/CustomRange/CustomRange";
 
-export const PackList = () => {
+export const PackPage = () => {
 
     /* const name = useSelector<AppRootStateType, string>(state => state.packs.name);*/
     const [searchValue, setSearchValue] = useState<string>("")
