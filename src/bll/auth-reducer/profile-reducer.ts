@@ -40,9 +40,12 @@ const initialState = {
 }
 
 export const profileReducer = (state: InitialStateType = initialState, action: ProfileAT): InitialStateType => {
+    console.log(action);
     switch (action.type) {
         case "profile/SET_USER":
             return {...state, user: action.user}
+        default:
+            return state
     }
 }
 
