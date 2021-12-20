@@ -1,13 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Navigation} from '../common/Navigation/Navigation';
 import styles from './PacksPage.module.scss'
 import {SearchLine} from "../common/SearchLine/SearchLine";
 import {CustomButton} from "../common/CustomButton/CustomButton";
 import CustomRange from "../common/CustomRange/CustomRange";
+import {getPacksTC} from "../../bll/packs-reducer";
+import { useDispatch } from 'react-redux';
 
 export const PackPage = () => {
 
-    /* const name = useSelector<AppRootStateType, string>(state => state.packs.name);*/
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getPacksTC())
+    }, [dispatch])
+
+
     const [searchValue, setSearchValue] = useState<string>("")
     const setSearchChangeHandler = (value: string) => {
         setSearchValue(value);

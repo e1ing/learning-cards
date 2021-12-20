@@ -5,7 +5,7 @@ import {Range, getTrackBackground} from 'react-range';
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
 
-type RangeRangePropsType = DefaultInputPropsType & {
+type RangePropsType = DefaultInputPropsType & {
     onChangeRange?: (value: number) => void
 };
 

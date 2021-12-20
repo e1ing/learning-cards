@@ -24,11 +24,11 @@ export const packsReducer = (state: InitialStateType = initialState, action: Pac
     }
 }
 
-export const setPacksAC = (packs: PackType[]) => ({type: "packs/SET_PACKS", packs} as const)
+export const setPacksAC = (packs: Array<PackType>) => ({type: "packs/SET_PACKS", packs} as const)
 export const setPackUser_idAC = (packUser_id: string) => ({type: "packs/SET_PACKS_USER_ID", packUser_id} as const)
 
 export const getPacksTC = (): AppThunk => (dispatch, getState) => {
-    const packUser_id = getState().packsReducer.packUser_id;
+    /*const packUser_id = getState().packsReducer.packUser_id;*/
     dispatch(setAppStatusAC('loading'));
     packsAPI.getPacks(packUser_id)
         .then(res => {
